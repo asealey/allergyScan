@@ -10,14 +10,18 @@ import { BarcodeScannerOptions, BarcodeScanner } from '@ionic-native/barcode-sca
 export class Tab3Page {
 
   scannedData = {};
+  isSafe = "DEFAULT";
   barcodeScannerOptions: BarcodeScannerOptions;
+  okCodes = ['0064144282432','000000']
 
+  constructor(private barcodeScanner: BarcodeScanner) {}
 
-  constructor(private barcodeScanner: BarcodeScanner) {
-    this.barcodeScannerOptions = {
-      showTorchButton: true,
-      showFlipCameraButton: true,
-    };
+  lookupCode(code){
+    if(this.okCodes.includes(code)){
+      return "Safe";
+    } else {
+      return "Unsafe!";
+    }
   }
 
   scanBarcode(){
@@ -27,11 +31,12 @@ export class Tab3Page {
       .then(barcodeData => {
         // alert("Barcode data " + JSON.stringify(barcodeData));
         this.scannedData = barcodeData;
+        this.isSafe = this.lookupCode(barcodeData["text"]);
+        // this.isSafe = this.okCodes.includes(barcodeData["text"]);
       }).catch(err => {
         // console.log('Error', err);
       })
   }
-
 
 
   // constructor(private camera: Camera) { }

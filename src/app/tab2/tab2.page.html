@@ -6,4 +6,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-list-header>Identify your allergies</ion-list-header>
+
+    <ion-item>
+      <ion-label>Allergies</ion-label>
+      <ion-select multiple="true" cancelText="Nevermind" okText="That's it!">
+        <ion-select-option value="dairy">Dairy</ion-select-option>
+        <ion-select-option value="peanut">Peanuts</ion-select-option>
+        <ion-select-option value="eggs">Eggs</ion-select-option>
+        <ion-select-option value="gluten">Gluten</ion-select-option>
+        <ion-select-option value="corn">corn</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
