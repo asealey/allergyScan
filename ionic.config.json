@@ -1,6 +1,8 @@
 {
   "name": "allergyScan",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "cd8923de"
 }
