@@ -10,17 +10,20 @@ import { BarcodeScannerOptions, BarcodeScanner } from '@ionic-native/barcode-sca
 export class Tab3Page {
 
   scannedData = {};
-  isSafe = "DEFAULT";
+  isSafe = "DEFAULT"
   barcodeScannerOptions: BarcodeScannerOptions;
   okCodes = ['0064144282432','000000']
+  scannerClass = "scannerCard"
 
   constructor(private barcodeScanner: BarcodeScanner) {}
 
   lookupCode(code){
     if(this.okCodes.includes(code)){
-      return "Safe";
+      this.setGoodScan();
+      return "Safe!";
     } else {
-      return "Unsafe!";
+      this.setBadScan();
+      return "Unsafe. :-(";
     }
   }
 
@@ -38,6 +41,16 @@ export class Tab3Page {
       })
   }
 
+  setGoodScan(){
+    this.scannerClass="scannerCard-Good";
+    // let card = document.getElementsByTagName('ion-card')[0];
+    // body.classList.remove("scannerCard","scannerCard-Good","scannerCard-Bad");   //remove the class
+    // body.classList.add("scannerCard-Good");   //add the class
+  }
+
+  setBadScan(){
+    this.scannerClass="scannerCard-Bad";
+  }
 
   // constructor(private camera: Camera) { }
 

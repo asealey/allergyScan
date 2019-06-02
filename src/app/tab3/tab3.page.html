@@ -8,45 +8,62 @@
 
 <ion-content ion-padding>
 
-  <ion-list>
-    <ion-list-header>Identify your allergies</ion-list-header>
-    <ion-item>
-      <ion-label>Allergies</ion-label>
-      <ion-select multiple="true" cancelText="Nevermind" okText="That's it!">
-        <ion-select-option value="dairy">Dairy</ion-select-option>
-        <ion-select-option value="peanut">Peanuts</ion-select-option>
-        <ion-select-option value="eggs">Eggs</ion-select-option>
-        <ion-select-option value="gluten">Gluten</ion-select-option>
-        <ion-select-option value="corn">Corn</ion-select-option>
-        <ion-select-option value="sesame">Sesame Seeds</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+
+  <ion-card class="AllergyCard">
+    <ion-card-header>
+      <ion-card-title>Identify Your Allergy</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>Allergies</ion-label>
+        <ion-select multiple="true" cancelText="Nevermind" okText="That's it!">
+          <ion-select-option value="dairy">Dairy</ion-select-option>
+          <ion-select-option value="peanut">Peanuts</ion-select-option>
+          <ion-select-option value="eggs">Eggs</ion-select-option>
+          <ion-select-option value="gluten">Gluten</ion-select-option>
+          <ion-select-option value="corn">Corn</ion-select-option>
+          <ion-select-option value="sesame">Sesame Seeds</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- <ion-card class="scannerCard"> -->
+  <ion-card [ngClass]="scannerClass">
+    <ion-card-header>
+      <ion-card-title>Allergy Scanner</ion-card-title>
+    </ion-card-header>
+
+    <div *ngIf="scannedData">
+        <p>
+          Scanned Code : <b>{{ scannedData["text"] }}</b>
+        </p>
+    </div>
+    <ng-template #elseBlock>
+      <h1>Please scan a code</h1>
+    </ng-template>
+
+    <!-- <div *ngIf="isSafe"> -->
+      <p>
+        Safety Rating : <b>{{ isSafe }}</b>
+      </p>
+    <!-- </div> -->
+
+      <!-- <p>
+          Scanned Code Format : <b>{{ scannedData["format"] }}</b>
+        </p> -->
 
 
-<div *ngIf="scannedData">
-    <p>
-      Scanned Code : <b>{{ scannedData["text"] }}</b>
-    </p>
-</div>
-<ng-template #elseBlock>
-  <h1>Please scan a code</h1>
-</ng-template>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button (click)="scanBarcode()">
+          <ion-icon name="barcode"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 
-<!-- <div *ngIf="isSafe"> -->
-  <p>
-    Safety Rating : <b>{{ isSafe }}</b>
-  </p>
-<!-- </div> -->
-
-  <!-- <p>
-      Scanned Code Format : <b>{{ scannedData["format"] }}</b>
-    </p> -->
+  </ion-card>
 
 
-<ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="scanBarcode()">
-      <ion-icon name="barcode"></ion-icon>
-    </ion-fab-button>
-</ion-fab>
+
+
+
 </ion-content>

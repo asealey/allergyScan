@@ -1,24 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Allergy Selection
+      About
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Identify your allergies</ion-list-header>
+  <!-- <ion-card class="AboutCard">
+      Thanks for using AllergyScanner +
+      Copyright 2019, Aniyah Sealey (aniyahrs26@sherwoodsd.com)
+      All rights reserved.
+    </ion-card> -->
 
-    <ion-item>
-      <ion-label>Allergies</ion-label>
-      <ion-select multiple="true" cancelText="Nevermind" okText="That's it!">
-        <ion-select-option value="dairy">Dairy</ion-select-option>
-        <ion-select-option value="peanut">Peanuts</ion-select-option>
-        <ion-select-option value="eggs">Eggs</ion-select-option>
-        <ion-select-option value="gluten">Gluten</ion-select-option>
-        <ion-select-option value="corn">corn</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+
+  <ion-card class="AboutCard-card">
+    <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+    <ion-card-header>
+      <ion-card-subtitle>Copyright</ion-card-subtitle>
+      <ion-card-title>Thanks for using AllergyScanner+</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img width="30px" height="40px" src="/assets/allergyScannerIcon.png"></ion-img>
+
+      <p>Thanks for using AllergyScanner + <br />
+        Copyright 2019, Aniyah Sealey (aniyahrs26@sherwoodsd.com)><br />
+        All rights reserved.</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
